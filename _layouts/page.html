@@ -4,7 +4,14 @@ layout: default
 <article class="post">
 
   <header class="post-header">
+    {%- if page.no_title -%}
+    <h1 class="post-title"></h1>
+    {%- elsif page.title_override -%}
+    <h1 class="post-title">{{ page.title_override | escape }}</h1>
+    {%- else -%}
     <h1 class="post-title">{{ page.title | escape }}</h1>
+    {%- endif -%}
+    
   </header>
 
   <div class="post-content">
