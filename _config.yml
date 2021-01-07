@@ -30,7 +30,8 @@ twitter_username: glitchnsec
 github_username:  glitchnsec
 
 # Build settings
-theme: minima
+# using custom minia theme
+# theme: minima
 plugins:
   - jekyll-feed
 
