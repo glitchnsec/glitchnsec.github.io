@@ -228,6 +228,10 @@ pre {
 /**
  * Tables
  */
+@media
+only screen 
+and (max-width: 760px), (min-device-width: 768px) 
+and (max-device-width: 1024px)  { 
 table {
   margin-bottom: $spacing-unit;
   width: 100%;
@@ -235,6 +239,7 @@ table {
   color: lighten($text-color, 18%);
   border-collapse: collapse;
   border: 1px solid $grey-color-light;
+
   tr {
     &:nth-child(even) {
       background-color: lighten($grey-color-light, 6%);
@@ -242,6 +247,7 @@ table {
   }
   th, td {
     padding: ($spacing-unit / 3) ($spacing-unit / 2);
+    display: block;
   }
   th {
     background-color: lighten($grey-color-light, 3%);
@@ -252,3 +258,5 @@ table {
     border: 1px solid $grey-color-light;
   }
 }
+}
+
