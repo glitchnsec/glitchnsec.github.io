@@ -17,7 +17,13 @@ layout: default
   </header>
 
   <div class='embed-container'>
-      <iframe src='{{ page.resource }}#page={{ page.start_page }}&zoom=FitH' frameborder='0' allowfullscreen></iframe>
+      <iframe id="frame_viewer" src='{{ page.resource }}#page={{ page.start_page }}&zoom=FitH' frameborder='0' allowfullscreen></iframe>
+      <!-- attempt fix for IOS browsers -->
+      <script>
+          document.getElementById("frame_viewer").contentWindow.onload = function(){
+              this.document.getElementsByTagName("img")[0].style.width="100%";
+          };
+      </script>
     </div>
 
   <div class="post-content e-content" itemprop="articleBody">
