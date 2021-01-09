@@ -19,12 +19,21 @@ layout: default
   <div class='embed-container'>
       <iframe id="frame_viewer" src='{{ page.resource }}#page={{ page.start_page }}&zoom=FitH' frameborder='0' allowfullscreen></iframe>
       <!-- attempt fix for IOS browsers -->
+      {%- assign src=  site.url | append: "/" | append: "presentations/" | append: page.resource -%}
+      {%- assign src=  src | append: "#page" | append: page.start_page | append: "&zoom=FitH" -%}
+      {%- assign src= src | url_encode -%}
+
       <script>
-          document.getElementById("frame_viewer").contentWindow.onload = function(){
-              this.document.getElementsByTagName("img")[0].style.width="100%";
-          };
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        if (vw <= 768) {
+            
+            document.getElementById("frame_viewer").src = 'https://drive.google.com/viewerng/viewer?embedded=true&url={{ src }}'
+
+        } 
       </script>
     </div>
+    <!-- {%- assign url = page.resource | append: "#page=" | append:  page.start_page | append: "&zoom=FitH" | url_encode -%}-->
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
