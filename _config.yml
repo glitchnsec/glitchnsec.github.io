@@ -31,6 +31,12 @@ twitter_username: glitchnsec
 github_username:  glitchnsec
 linkedin_username: kelechukwu-udonsi-kc-72573559
 
+collections:
+  presentations:
+    output: true
+  projects:
+    output: true
+
 # Build settings
 # using regular theme
 # theme: minima
