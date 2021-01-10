@@ -42,8 +42,8 @@ layout: default
     <div class="footer-col footer-col-1">
     <p class="post-meta">
         <span >
-            <a href="{{ page.next.url | relative_url }}">
-                Previous Deck: {{ page.next.title | escape }}
+            <a href="{{ page.previous.url | relative_url }}">
+                Previous Deck: {{ page.previous.title | escape }}
             </a>
         </span>
     </p>
@@ -51,8 +51,8 @@ layout: default
     <div class="footer-col footer-col-4">
         <p class="post-meta">
             <span>
-                <a href="{{ page.previous.url | relative_url }}">
-                    Next Deck: {{ page.previous.title | escape }}
+                <a href="{{ page.next.url | relative_url }}">
+                    Next Deck: {{ page.next.title | escape }}
                 </a>
             </span> 
         </p>
