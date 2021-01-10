@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="disclosures">
+
+  {{ content }}    
+
+  {%- if site.disclosures.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {% assign sorted = site.disclosures | reverse %}
+      {%- assign index = 0 -%}
+      {%- assign size = sorted.size -%}
+      {%- for disclosure in sorted -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b, %Y" -%}
+        <h3>
+          <a class="post-link" href="{{ disclosure.url | relative_url }}">
+            • {{ disclosure.cve }}: {{ disclosure.title | escape }}
+          </a>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="post-meta">{{ disclosure.summary }}</span><br/>         
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="post-meta">Disclosed {{ disclosure.date | date: date_format }} - 
+            CVSS3.1: {{ disclosure.cvss3 }}. Discovered by {{disclosure.author }} </span>
+        </h3>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+
+
+</div>
