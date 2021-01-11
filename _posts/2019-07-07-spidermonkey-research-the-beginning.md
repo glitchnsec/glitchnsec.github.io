@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2019-07-07 12:59:00 -0500
+date:   2019-07-07 12:56:00 -0500
 categories: research
 title: SpiderMonkey Research - The beginning
 ---
@@ -27,4 +27,3 @@ LiveOverflow, I'm just one of the many people you inspire and teach indirectly. 
 <b><u> </u></b><br />
 Anyone, finally, if you see anything wrong, weird, etc. Feel free to correct me. Without further ado, let's get to it!<br />
 <br />
-<a href="https://glitchnsec.blogspot.com/2019/07/spidermonkey-research-0x01-setup-debug.html" target="_blank">0x01 - SpiderMonkey Research - Setup &amp; Debug &gt;&gt;</a>

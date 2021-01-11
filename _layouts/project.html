@@ -17,9 +17,9 @@ layout: default
           <a href="{{ project.github | relative_url }}">
             {{ project.title | escape }}
             <br/>
-            <span class="post-meta">{{ project.languages | join: ", " }}</span>              
+            <span class="post-meta"><b>Languages: </b>{{ project.languages | join: ", " }}</span>              
             <br/>
-            <span class="post-meta">{{ project.summary }}</span>                   
+            <span class="post-meta"><b>Summary: </b>{{ project.summary }}</span>                   
           </a>
 
         </h3>
@@ -33,15 +33,18 @@ layout: default
   <h2 class="post-list-heading">External Contributions</h2>
   <ul class="">
       {%- for cont in page.contributions -%}
-      <li>
+      
         {%- for data in cont -%}
         <a href="{{ data[1].url | relative_url }}">
-         {{ data[1].project | escape }} - {{ data[1].reference }}
-        </a>:
-        <span class="post-meta">{{ data[1].roles | join: ", " }}</span>
+            <li>
+            {{ data[1].project | escape }} - {{ data[1].reference }}
+            </li>
+            <span class="post-meta"><b>Roles: </b>{{ data[1].roles | join: ", " }} <b>Laguage: </b>{{ data[1].languages | join: ", " }}</span>
+        </a>
+        
         
         {%- endfor -%}
-       </li>
+       
       {%- endfor -%}
   </ul>
 

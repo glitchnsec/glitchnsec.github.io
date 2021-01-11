@@ -19,6 +19,27 @@ layout: default
     {{ content }}
   </div>
 
+  <div class="footer-col-wrapper">
+    <div class="footer-col footer-col-1">
+    <p class="post-meta">
+        <span >
+            <a href="{{ page.previous.url | relative_url }}">
+                Previous Post: {{ page.previous.title | escape }}
+            </a>
+        </span>
+    </p>
+    </div>
+    <div class="footer-col footer-col-4">
+        <p class="post-meta">
+            <span>
+                <a href="{{ page.next.url | relative_url }}">
+                    Next Post: {{ page.next.title | escape }}
+                </a>
+            </span> 
+        </p>
+    </div>
+  </div>  
+
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
   {%- endif -%}

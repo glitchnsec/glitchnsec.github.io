@@ -11,28 +11,38 @@ contributions:
       roles:
         - reporter
         - assignee
+      languages:
+        - C++
   - mozilla::Core::JavaScript-Engine:
       url: https://bugzilla.mozilla.org/show_bug.cgi?id=1531479
       project: mozilla::Core::JavaScript-Engine
       reference: Bug 1531479
       roles:
         - contributor
+      languages:
+        - C++        
   - mozilla::Core::JavaScript-Engine:
       url: https://bugzilla.mozilla.org/show_bug.cgi?id=1531480
       project: mozilla::Core::JavaScript-Engine
       reference: Bug 1531480
       roles:
         - assignee
+      languages:
+        - C++        
   - mozilla::Core::JavaScript-Engine:
       url: https://bugzilla.mozilla.org/show_bug.cgi?id=1530844
       project: mozilla::Core::JavaScript-Engine
       reference: Bug 1530844
       roles:
         - assignee
+      languages:
+        - C++        
   - mozilla::Core::JavaScript-Engine:
       url: https://bugzilla.mozilla.org/show_bug.cgi?id=1538301
       reference: Bug 1538301
       project: mozilla::Core::JavaScript-Engine
       roles:
-        - reporter                           
+        - reporter
+      languages:
+        - C++        
 ---
