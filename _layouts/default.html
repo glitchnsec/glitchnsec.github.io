@@ -1,6 +1,60 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html data-theme="light" lang="{{ page.lang | default: site.lang | default: "en" }}">
+<script>
+      let systemInitiatedDark = window.matchMedia("(prefers-color-scheme: dark)"); 
+      let theme = sessionStorage.getItem('theme');
 
+      if (systemInitiatedDark.matches) {
+        document.getElementById("theme-toggle").innerHTML = "Toggle Light Mode";
+      } else {
+        document.getElementById("theme-toggle").innerHTML = "Toggle Dark Mode";
+      }
+
+      function prefersColorTest(systemInitiatedDark) {
+        if (systemInitiatedDark.matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');		
+          document.getElementById("theme-toggle").innerHTML = "Toggle Light Mode";
+          sessionStorage.setItem('theme', '');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          document.getElementById("theme-toggle").innerHTML = "Toggle Dark Mode";
+          sessionStorage.setItem('theme', '');
+        }
+      }
+      systemInitiatedDark.addListener(prefersColorTest);
+
+
+      function modeSwitcher() {
+        let theme = sessionStorage.getItem('theme');
+        if (theme === "dark") {
+          document.documentElement.setAttribute('data-theme', 'light');
+          sessionStorage.setItem('theme', 'light');
+          document.getElementById("theme-toggle").innerHTML = "Toggle Dark Mode";
+        }	else if (theme === "light") {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          sessionStorage.setItem('theme', 'dark');
+          document.getElementById("theme-toggle").innerHTML = "Toggle Light Mode";
+        } else if (systemInitiatedDark.matches) {	
+          document.documentElement.setAttribute('data-theme', 'light');
+          sessionStorage.setItem('theme', 'light');
+          document.getElementById("theme-toggle").innerHTML = "Toggle Dark Mode";
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          sessionStorage.setItem('theme', 'dark');
+          document.getElementById("theme-toggle").innerHTML = "Toggle Light Mode";
+        }
+      }
+
+      if (theme === "dark") {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        sessionStorage.setItem('theme', 'dark');
+        document.getElementById("theme-toggle").innerHTML = "Toggle Light Mode";
+      } else if (theme === "light") {
+        document.documentElement.setAttribute('data-theme', 'light');
+        sessionStorage.setItem('theme', 'light');
+        document.getElementById("theme-toggle").innerHTML = "Toggle Dark Mode";
+      }  
+</script>
   {%- include head.html -%}
 
   <body>
@@ -9,12 +63,20 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
+        <ul class="tg-list">
+          <li class="tg-list-item">
+            <h4 id=theme-toggle>Toggle Mode</h4>
+            <input class="tgl tgl-light" id="cb1" type="checkbox" onchange="modeSwitcher();"/>
+            <label class="tgl-btn" for="cb1"></label>
+          </li>
+        </ul>        
         {{ content }}
       </div>
     </main>
 
     {%- include footer.html -%}
     <script>
+
       window.onscroll = function() {myFunction()};
       
       var header = document.getElementsByTagName("header");

@@ -10,70 +10,167 @@ $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 
-/**
+
 html, html[data-theme="light"] {
-  $text-color:       #111 !default;
-  $background-color: #fdfdfd !default;
-  $brand-color:      #2a7ae2 !default;
-  
-  $grey-color:       #828282 !default;
-  $grey-color-light: lighten($grey-color, 40%) !default;
-  $grey-color-dark:  darken($grey-color, 25%) !default;  
+  --text-color:       #111 ;
+  --background-color: #fdfdfd;
+  --brand-color:      #2a7ae2;
+  --code-border-color: #828282;
+  --code-background-color:  hsl(var(--code-border-color), 40%); //lighten
+  --code-text-color: #111;
+  --grey-color:       #828282;
+  --grey-color-light: hsl(var(--grey-color), 40%); //lighten
+  --grey-color-dark:  hsl(var(--grey-color), 25%); // darken
 }
 
 html[data-theme="dark"] {
-  $text-color:       #fdfdfd !default;
-  $background-color: #111 !default;
-  $brand-color:      #ffdd1c !default;
-  
-  $grey-color:       #828282 !default;
-  $grey-color-light: darken($grey-color, 25%) !default;
-  $grey-color-dark:  lighten($grey-color, 40%) !default;
+  --text-color:       #fdfdfd;
+  --navy-color:#001f3f;
+  --background-color: hsl(var(--navy-color), 15%); //darken
+  --brand-color:      #ffdd1c;
+  --code-border-color: #0f0f0f;
+  --code-background-color:  hsl(var(--code-border-color), 50%); //darken
+  --code-text-color: rgb(1, 255, 14);
+  --grey-color:       #828282;
+  --grey-color-light: hsl(var(--grey-color), 25%); //lighten
+  --grey-color-dark:  hsl(var(--grey-color), 40%); //darken
+}
 
 @media (prefers-color-scheme: dark) {
   html, html[data-them="dark"]{
-    $text-color:       #fdfdfd !default;
-    $background-color: #111 !default;
-    $brand-color:      #ffdd1c !default;
-    
-    $grey-color:       #828282 !default;
-    $grey-color-light: darken($grey-color, 25%) !default;
-    $grey-color-dark:  lighten($grey-color, 40%) !default;    
+    --text-color:       #fdfdfd;
+    --navy-color:#001f3f;
+    --background-color: hsl(var(--navy-color), 15%); // darken
+    --brand-color:      #ffdd1c;
+    --code-border-color: #0f0f0f;
+    --code-background-color:  hsl(var(--code-border-color), 50%); //darken
+    --code-text-color: rgb(1,  255, 14);;
+    --grey-color:       #828282;
+    --grey-color-light: hsl(var(--grey-color), 25%); // lighten
+    --grey-color-dark:  hsl(var(--grey-color), 40%); // darken
   }
 
   html[data-theme="light"]{
-    $text-color:       #111 !default;
-    $background-color: #fdfdfd !default;
-    $brand-color:      #2a7ae2 !default;
-    
-    $grey-color:       #828282 !default;
-    $grey-color-light: lighten($grey-color, 40%) !default;
-    $grey-color-dark:  darken($grey-color, 25%) !default;      
+    --text-color:       #111;
+    --background-color: #fdfdfd;
+    --brand-color:      #2a7ae2;
+    --code-border-color: #828282;
+    --code-background-color:  hsl(var(--code-border-color), 40%); // lighten
+    --code-text-color: #111;
+    --grey-color:       #828282;
+    --grey-color-light: hsl(var(--grey-color), 40%); // lighten
+    --grey-color-dark:  hsl(var(--grey-color), 25%); // darken
   }
 }
 
-**/
-
-/**
+/*
 $text-color:       #111 !default;
 $background-color: #fdfdfd !default;
 $brand-color:      #2a7ae2 !default;
-
+$code-border-color: #828282 !default;
+$code-background-color:  lighten($code-border-color, 40%) !default;
+$code-text-color: #111;
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
-**/
+*/
 
-$text-color:       #fdfdfd !default;
-$background-color: #111 !default;
-$brand-color:      #ffdd1c !default;
-$code-border-color: #0f0f0f;// #828282 !default;
-$code-background-color:  darken($code-border-color, 50%) !default;
-$code-text-color: rgb(1, 255, 14);
 
-$grey-color:       #828282 !default;
-$grey-color-light: lighten($grey-color, 25%) !default;
-$grey-color-dark:  darken($grey-color, 40%) !default;
+
+/** SLIDER CODE **/
+
+ul,
+li {
+	list-style: none;
+  justify-content: right;
+}
+
+.tg-list {
+	text-align: center;
+	display: flex;
+	align-items: center;
+}
+
+.tg-list-item {
+	margin: 0 0em;
+}
+
+.tgl {
+	display: none;
+  
+	// add default box-sizing for this scope
+	&,
+  &:after,
+  &:before,
+	& *,
+  & *:after,
+  & *:before,
+	& + .tgl-btn {
+		box-sizing: border-box;
+		&::selection {
+			background: none;
+		}
+	}
+  
+	+ .tgl-btn {
+		outline: 0;
+		display: block;
+		width: 4em;
+		height: 2em;
+    position: relative;
+    align-items: right;
+    box-shadow: 0 0 1px #2196F3;
+		cursor: pointer;
+    user-select: none;
+		&:after,
+    &:before {
+			position: relative;
+			display: block;
+			content: "";
+			width: 50%;
+			height: 100%;
+		}
+    
+		&:after {
+			left: 0;
+		}
+    
+		&:before {
+			display: none;
+		}
+	}
+  
+	&:checked + .tgl-btn:after {
+		left: 50%;
+	}
+}
+
+.tgl-light {
+	+ .tgl-btn {
+		background: #f0f0f0;
+    border-radius: 2em;
+    align-items: left;
+		padding: 2px;
+		transition: all .4s ease;
+		&:after {
+			border-radius: 50%;
+			background:#2196F3;
+			transition: all .2s ease;
+		}
+	}
+  
+	&:checked + .tgl-btn {
+    background: var(--background-color);
+    box-shadow: 0 0 1px  var(--brand-color);
+		&:after {
+			border-radius: 50%;
+			background: var(--brand-color);
+			transition: all .2s ease;
+		}    
+	}
+}
+
+/** END SLIDER CODE **/ 
 
 $table-text-align: left !default;
 
