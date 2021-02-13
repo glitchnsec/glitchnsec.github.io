@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2019-07-07 12:56:00 -0500
-categories: research
+categories: research browsers
 title: SpiderMonkey Research - The beginning
 ---
 

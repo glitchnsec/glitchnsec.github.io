@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2019-07-07 12:59:00 -0500
-categories: research
+categories: research browsers
 title: SpiderMonkey Research - 0x01 - Setup & Debug
 ---
 
