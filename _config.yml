@@ -24,8 +24,6 @@ author: Kc Udonsi
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my little corner of the internet! I'm Kc and this is my outlet.
   On here, I intend to share a variety of technical stuff in detail and showcase some of my little projects.
-  This site is always a work in progress. If you would like to get in touch, you can find my social links
-  in the site footnote! Thanks for stopping by and I hope you find something relevant. All the best!
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://glitchnsec.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 xurl: "https://glitchnsec.github.io" 
