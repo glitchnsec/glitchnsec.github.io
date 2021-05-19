@@ -20,10 +20,9 @@
 
 title: "Bits off the old Bytes: n00bs Edition"
 email: ""
-author: Kc Udonsi
+author: Kelechukwu (kc) Udonsi
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to my little corner of the internet! I'm Kc and this is my outlet.
-  On here, I intend to share a variety of technical stuff in detail and showcase some of my little projects.
+  Security Research and Engineering knowledge for all audiences and technology stacks!.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://glitchnsec.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 xurl: "https://glitchnsec.github.io" 
