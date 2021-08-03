@@ -23,6 +23,14 @@ layout: default
       <br/>
       <b>Vendor: </b> {{page.vendor}}
       <br/>
+      <b>CWEs:</b>
+      <ul>
+        {%- for cwe in page.cwes -%}
+        <li>
+            <a href=https://cwe.mitre.org/data/definitions/{{cwe.id}}.html>CWE-{{cwe.id}}: {{cwe.name}}</a>
+        </li>
+        {%- endfor -%}
+      </ul>
       <b>Affected Products:</b>
       <ul>
         {%- for p in page.products -%}
@@ -31,16 +39,9 @@ layout: default
         </li>
         {%- endfor -%}
       </ul>
-
-
   </div>
-
-  <div  class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
   <div class="post-meta">
-    <b>Advisories:</b>
+    <b>Other Advisories:</b>
     <ul>
       {%- for url in page.advisories -%}
       <li>
@@ -49,6 +50,9 @@ layout: default
       {%- endfor -%}
     </ul>
 
+  <div  class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
 
 </div>  
   
