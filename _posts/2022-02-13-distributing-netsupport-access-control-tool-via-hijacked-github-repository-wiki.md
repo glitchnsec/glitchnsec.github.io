@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2022-02-13 02:26:00 -0500
-categories: threat investigations
+categories: threat-investigations
 ---
 
 Distributing NetSupport Remote Access Tool via Hijacked GitHub Repository Wikis
@@ -15,13 +15,13 @@ The following details an interesting threat activity that seemed to have spanned
 
 It's afternoon of Jan 23 2022 and I receive a message from a friend.
 
-![911](/assets/_images/help!.png)
+![911](/assets/images/help!.png)
 
 Fig.1
 
 I ask a few interrogative questions just to make sure he knows what he saw. Most importantly, I care about Windows Defender has to say about the situation.
 
-![FAQ](/assets/_images/faq.png)
+![FAQ](/assets/images/faq.png)
 
 Fig.2
 
@@ -33,7 +33,7 @@ I kid you not, I'm not allowing myself to believe it's a remote access trojan. I
 
 According to the on-prem security guard, Windows Defender, the last potential threat activity was `Nov. 11, 2021`.
 
-![wd_report](/assets/_images/wd_report.png)
+![wd_report](/assets/images/wd_report.png)
 
 Fig.3
 
@@ -48,11 +48,11 @@ Assuming we have a real threat actor, they have likely prepared for "turning off
 
 In the user startup folder, `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`, the first Indicator of Compromise is discovered.
 
-![Autoruns.ini.lnk image](/assets/_images/autoruns_ini_lnk.png)
+![Autoruns.ini.lnk image](/assets/images/autoruns_ini_lnk.png)
 
 Fig.14
 
-![Autoruns info](/assets/_images/autoruns_dets.png)
+![Autoruns info](/assets/images/autoruns_dets.png)
 
 Fig.15
 
@@ -69,13 +69,13 @@ What is `client32.exe`? Yeah I didn't know too, but let's Google it!
 
 According to `https://file.info` 
 
-![fileinfo](/assets/_images/fileinfo.png)
+![fileinfo](/assets/images/fileinfo.png)
 
 Fig.4
 
 it is a component of NetSupport Manager Application. This application appears to be a product of a legitimate business in the UK. `https://www.netsupportmanager.com/platforms/windows/` 
 
-![net sup remote info](/assets/_images/netsupmanreminfo.png)
+![net sup remote info](/assets/images/netsupmanreminfo.png)
 
 Fig.5
 
@@ -95,7 +95,7 @@ Given the scenario, I opted to use [Mandiant's Redline](https://www.fireeye.com/
 
 Redline has a TimeLine feature and we have a date `Nov 11. 2021` so let's see what artifacts were created around 2pm (according to Windows Defender's report.)
 
-![redline timeline 1](/assets/_images/redline_p1.png)
+![redline timeline 1](/assets/images/redline_p1.png)
 
 Fig.6
 
@@ -105,13 +105,13 @@ It appears from the prefetch files, SmartScreen prompted the victim for verifica
 
 Two artifacts are known to us. `Gow-0.8.0.zip` and `client32.exe`. According to Redline's timeline summary, the `Gow-0.8.0.zip` file was obtained from GitHub.
 
-![gow-download](/assets/_images/download_dets.png)
+![gow-download](/assets/images/download_dets.png)
 
 Fig.7
 
 The download URL `https://github-releases.githubusercontent.com/426168326/57107ec2-d330-4ed8-829a-35b82902f7de...` gives us the repository ID from which this file was downloaded. Using the undocumented but useful API `/repositories/<ID>`, we can query a repository by ID. 
 
-![github_repo](/assets/_images/github_repo.png)
+![github_repo](/assets/images/github_repo.png)
 
 Fig.8
 
@@ -123,7 +123,7 @@ Unfortunately, the download metadata does not contain the file hash, but we see 
 
 At the time, `NSM.LIC` file was hidden and I missed it during my initial evidence collection. Luckily searching the hash led me to this `https://any.run` [report](https://any.run/report/3dfd99f196890ba6195f1ed90da2f3263b5a2f001d313741df764e7f14606b40/f64884ff-e947-4929-9d9d-101a2de7340d). This was the first sign of another ITW activity. Any run allows the viewing of files uploaded to the community domain.
 
-![NSM license](/assets/_images/nsm_license.png)
+![NSM license](/assets/images/nsm_license.png)
 
 Fig.9
 
@@ -135,7 +135,7 @@ Enter Windows Defender. Redline TimeLine suggests Windows Defender wrote scan fi
 
 The content of the file is binary, the format was not investigated, but it has some obvious wide character strings.
 
-![](/assets/_images/wd_detail.png)
+![](/assets/images/wd_detail.png)
 
 Fig.10
 
@@ -145,7 +145,7 @@ Searching our sample SHA1 hash `5eaf9684a6f80fcd59aa00228cb5379ec3f026438b3ccdd8
 
 - A [GitHub issue on GammaRay repository](https://github.com/KDAB/GammaRay/issues/658) on GitHub.
   
-  ![](/assets/_images/hash_found!.png)
+  ![](/assets/images/hash_found!.png)
   
   Fig.11
 
@@ -155,21 +155,21 @@ We have found our sample on another repository. The GitHub user `dantti` mention
 
 This could mean the `Gow` repository suffered the same attack and sure enough [it did](https://github.com/bmatzelle/gow/issues?q=is%3Aissue+is%3Aclosed).
 
-![](/assets/_images/gow_hacked.png)
+![](/assets/images/gow_hacked.png)
 
 Fig.12
 
 The GitHub issues were opened `Dec 23, 2021`. The threat actor began making the link updates `Oct 21, 2021` under different GitHub usernames.
 
-![](/assets/_images/wiki_updates.png)
+![](/assets/images/wiki_updates.png)
 
 Fig.13
 
-![](/assets/_images/gow_hacked2.png)
+![](/assets/images/gow_hacked2.png)
 
 Fig.16
 
-![](/assets/_images/urlscan.png)
+![](/assets/images/urlscan.png)
 
 Fig.17
 
@@ -205,7 +205,7 @@ Although still unclear, as the licensed software may have been stolen, the licen
 
 Network traffic suggests the control server resides in Russia.
 
-![](/assets/_images/network_p1.png)
+![](/assets/images/network_p1.png)
 
 Fig.16
 
