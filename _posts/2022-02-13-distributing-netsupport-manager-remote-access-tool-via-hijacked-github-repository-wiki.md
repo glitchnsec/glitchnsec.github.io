@@ -94,7 +94,7 @@ The device is a 250 GB SSD and 8 GB RAM. Whilst I had the storage to image the R
 
 Given the scenario, I opted to use [Mandiant's Redline](https://www.fireeye.com/services/freeware/redline.html) for the preliminary host investigation. Copy Redline to flash disk and install on the victim machine offline. Then select type of artifacts to be gathered and execute.
 
-Redline has a TimeLine feature and we have a date `Nov 11. 2021` so let's see what artifacts were created around 2pm (according to Windows Defender's report.)
+Redline has a TimeLine feature and we have a date `Nov 11. 2021` so let's see what artifacts were created around 4pm EST (according to Windows Defender's report.)
 
 ![redline timeline 1](/assets/images/redline_p1.png)
 
