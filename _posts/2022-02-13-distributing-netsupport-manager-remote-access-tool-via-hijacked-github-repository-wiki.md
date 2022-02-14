@@ -2,6 +2,7 @@
 layout: post
 date:   2022-02-13 02:26:00 -0500
 categories: threat-investigations
+redirect_from: /threat-investigations/2022/02/13/distributing-netsupport-manager-access-control-tool-via-hijacked-github-repository-wiki.html
 ---
 
 Distributing NetSupport Manager Remote Access Tool via Hijacked GitHub Repository Wikis
