@@ -8,7 +8,7 @@ Distributing NetSupport Manager Remote Access Tool via Hijacked GitHub Repositor
 ---
 
 <h3><b>Abstract</b></h3>
-The following details an interesting threat activity that seemed to have spanned Oct 2021 - Jan 2022. Certain now defunct GitHub accounts were found to update wiki pages having weak write permissions with links to trojanized binaries. Unsuspecting victims were compromised with the known remote access software NetSupport Manager Application.
+The following details an interesting threat activity that seemed to have spanned Oct 2021 - Jan 2022. Certain now defunct GitHub accounts were found to update wiki pages having weak write permissions with links to trojanized binaries. Unsuspecting victims were compromised with the known remote access software NetSupport Manager Application. A remote access tool/trojan is a software designed to allow a remote personnel fully control/manipulate a client computer.
 <br>
 
 <h3><b>911, What's your emergency?</b></h3>
