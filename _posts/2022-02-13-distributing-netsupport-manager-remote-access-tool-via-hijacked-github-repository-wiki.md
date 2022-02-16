@@ -51,11 +51,11 @@ In the user startup folder, `%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Sta
 
 ![Autoruns.ini.lnk image](/assets/images/autoruns_ini_lnk.png)
 
-Fig.14
+Fig.4
 
 ![Autoruns info](/assets/images/autoruns_dets.png)
 
-Fig.15
+Fig.5
 
 A few telltale signs:
 
@@ -72,13 +72,13 @@ According to `https://file.info`
 
 ![fileinfo](/assets/images/fileinfo.png)
 
-Fig.4
+Fig.6
 
 it is a component of NetSupport Manager Application. This application appears to be a product of a legitimate business in the UK. `https://www.netsupportmanager.com/platforms/windows/` 
 
 ![net sup remote info](/assets/images/netsupmanreminfo.png)
 
-Fig.5
+Fig.7
 
 According to the victim's account, he is unaware of this application's presence.
 
@@ -98,7 +98,7 @@ Redline has a TimeLine feature and we have a date `Nov 11. 2021` so let's see wh
 
 ![redline timeline 1](/assets/images/redline_p1.png)
 
-Fig.6
+Fig.8
 
 It appears from the prefetch files, SmartScreen prompted the victim for verification. Then a scan by Windows Defender was triggered. Right after the scan concludes, NetSupport Manager file gets written to disk. This behavior suggests two possibilities. Either an RCE in Windows Defender or a self extracting ZIP archive. The later was found to be the case. However, the sample was not reverse engineering so it's inner workings are not known.
 
@@ -108,13 +108,13 @@ Two artifacts are known to us. `Gow-0.8.0.zip` and `client32.exe`. According to 
 
 ![gow-download](/assets/images/download_dets.png)
 
-Fig.7
+Fig.9
 
 The download URL `https://github-releases.githubusercontent.com/426168326/57107ec2-d330-4ed8-829a-35b82902f7de...` gives us the repository ID from which this file was downloaded. Using the undocumented but useful API `/repositories/<ID>`, we can query a repository by ID. 
 
 ![github_repo](/assets/images/github_repo.png)
 
-Fig.8
+Fig.10
 
 Great (sarcastically), the repository is gone. Interesting because there's a legitimate `Gow` [repository on Github](https://github.com/bmatzelle/gow/releases/tag/v0.8.0) and the latest version? `0.8.0`. At this point, the connection is unclear.
 
@@ -126,19 +126,19 @@ At the time, `NSM.LIC` file was hidden and I missed it during my initial evidenc
 
 ![NSM license](/assets/images/nsm_license.png)
 
-Fig.9
+Fig.11
 
 Alright, we have pseudo-WHO. Save from contacting the Vendor, threat actor `Freddy` could be whoever. The `https://any.run` report was generated `Jan 20. 2022`. The License was generated `Nov. 14 2017`. Threat actor `Freddy` has been in business for over 3 years.
 
 The sample from this `https://any.run` [report](https://any.run/report/3dfd99f196890ba6195f1ed90da2f3263b5a2f001d313741df764e7f14606b40/f64884ff-e947-4929-9d9d-101a2de7340d) appears to exhibit similar behavior to our sample. Are they the same sample? We still need our hash to tell!
 
-Enter Windows Defender. Redline TimeLine suggests Windows Defender wrote scan file for this sample (See Fig.6 - Highlight 3). The file written by Windows Defender was `C:\Users\All Users\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory\17\4AEF7B1B-238E-4397-A59E-67DDDDF5DE97`
+Enter Windows Defender. Redline TimeLine suggests Windows Defender wrote scan file for this sample (See Fig.8 - Highlight 3). The file written by Windows Defender was `C:\Users\All Users\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory\17\4AEF7B1B-238E-4397-A59E-67DDDDF5DE97`
 
 The content of the file is binary, the format was not investigated, but it has some obvious wide character strings.
 
 ![](/assets/images/wd_detail.png)
 
-Fig.10
+Fig.12
 
 Thanks to Windows Defender, we have all three hash types to search the internet with. Our sample hash differs from the sample in the discovered report. However the threat actor is either the same or a licensed copy of Net Support Manager was stolen and used for these attacks.
 
@@ -148,7 +148,7 @@ Searching our sample SHA1 hash `5eaf9684a6f80fcd59aa00228cb5379ec3f026438b3ccdd8
   
   ![](/assets/images/hash_found!.png)
   
-  Fig.11
+  Fig.13
 
 - VirusTotal [report](https://www.virustotal.com/gui/file/5eaf9684a6f80fcd59aa00228cb5379ec3f026438b3ccdd8d26b25a6f4b53b97/details). Perfect! Our sample is out there and recognized by a few endpoint protection software as malicious. This is good news. It was first uploaded to VirusTotal `Nov 07, 2021`. So far, threat actor has had 3 months (Oct 2021 - Jan 2022) to work undetected.
 
@@ -158,13 +158,13 @@ This could mean the `Gow` repository suffered the same attack and sure enough [i
 
 ![](/assets/images/gow_hacked.png)
 
-Fig.12
+Fig.14
 
 The GitHub issues were opened `Dec 23, 2021`. The threat actor began making the link updates `Oct 21, 2021` under different GitHub usernames.
 
 ![](/assets/images/wiki_updates.png)
 
-Fig.13
+Fig.15
 
 ![](/assets/images/gow_hacked2.png)
 
@@ -208,7 +208,7 @@ Network traffic suggests the control server resides in Russia.
 
 ![](/assets/images/network_p1.png)
 
-Fig.16
+Fig.18
 
 <h2><b>Remediation - Victim</b></h2>
 
