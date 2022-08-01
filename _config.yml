@@ -36,7 +36,9 @@ collections:
   projects:
     output: true
   disclosures:
-    output: true    
+    output: true
+  courses:
+    output: true
 
 # Build settings
 # using regular theme

@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<div class="services">
+
+  <h2 class="post-list-heading">Coming Soon ...</h2>
+
+  <!--
+  {%- if site.services.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {% assign sorted = site.services | reverse %}
+      {%- assign index = 0 -%}
+      {%- assign size = sorted.size -%}
+      {%- for project in sorted -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b, %Y" -%}
+        <h3>
+          <a href="{{ project.github | relative_url }}">
+            {{ project.title | escape }}
+            <br/>
+            <span class="post-meta"><b>Languages: </b>{{ project.languages | join: ", " }}</span>              
+            <br/>
+            <span class="post-meta"><b>Summary: </b>{{ project.summary }}</span>                   
+          </a>
+
+        </h3>
+        
+      </li>
+      {%- endfor -%}
+    </ul>
+
+  {%- endif -%}
+
+  <h2 class="post-list-heading">External Contributions</h2>
+  <ul class="">
+      {%- for cont in page.contributions -%}
+      
+        {%- for data in cont -%}
+        <a href="{{ data[1].url | relative_url }}">
+            <li>
+            {{ data[1].project | escape }} - {{ data[1].reference }}
+            </li>
+            <span class="post-meta"><b>Roles: </b>{{ data[1].roles | join: ", " }} <b>Language: </b>{{ data[1].languages | join: ", " }}</span>
+        </a>
+        
+        
+        {%- endfor -%}
+       
+      {%- endfor -%}
+  </ul>
+
+
+  {{ content }}   
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  -->
+</div>

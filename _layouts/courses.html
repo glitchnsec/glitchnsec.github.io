@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="courses">
+
+  {{ content }}    
+
+  {%- if site.courses.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {% assign sorted = site.courses | reverse %}
+      {%- assign index = 0 -%}
+      {%- assign size = sorted.size -%}
+      {%- for course in sorted -%}
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b, %Y" -%}
+        <h3>
+          <a class="post-link" href="{{ course.url | relative_url }}">
+            • {{ course.code  }}: {{ course.title | escape }}
+          </a>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="post-meta">{{ course.summary }}</span><br/>         
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="post-meta">Published {{ course.date | date: date_format }}<br/></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="post-meta"> In collaboration with {%- for collab in course.collaborators -%}&nbsp;<a href="{{collab.url}}">{{collab.name}}</a>,{%- endfor -%}</span> 
+        </h3>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+
+
+</div>
