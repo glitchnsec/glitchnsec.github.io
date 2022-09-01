@@ -5,7 +5,7 @@ title: Computer and Network Security
 institute:
     - name: University of Toronto Scarborough
       url: "https://www.utsc.utoronto.ca/home/"
-csite: "https://thierrysans.me/CSCD27/"
+csite: "https://glitchnsec.github.io/CSCD27H3F22/"
 date: 2022-09-06 00:00:00 -0600
 collaborators:
     - name: Professor Thierry Sans
