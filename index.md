@@ -13,18 +13,23 @@ Hello netizen! I am Kc Udonsi (legal name: Kelechukwu Udonsi). Welcome to my lit
 Areas of technical expertise and interest include: 
 
 - Security Research
-- Software Engineering
+- Software Engineering (although you can probably tell I suck at frontend stuff 😂)
 - Security Engineering
 - Binary and Protocal Analysis
 - Digital Forensics and Incidence Response
 - Threat Intelligence
 - Red Teaming
 - Blockchain security
+- Machine Learning & Cybersecurity
 
-Others
+Other interests include:
 
 - [Teaching](courses/)
-- [Coaching](services/mentor.html)
+- [Coaching & Mentoring](services/mentor.html)
 - Model photography (**Gallery coming soon!*)
-- Airsoft
-- Krav maga
+- [Airsoft](https://www.siegeairsoft.com/)
+- [Krav maga & Muay Thai](https://emakravmaga.ca/)
+- Musician 🎹 🎸 🥁
+- Hip Hop dancing (which I really suck at 😂)
+
+You can connect on Twitter and a few infosec hubs on Discord and Slack under the handle `@glitchnsec`.
