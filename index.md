@@ -32,4 +32,9 @@ Other interests include:
 - Musician 🎹 🎸 🥁
 - Hip Hop dancing (which I really suck at 😂)
 
+Education
+
+- [CISSP](https://www.credly.com/badges/8d9a9ee7-dd66-4072-b080-993862f3dc87/public_url)
+- HBSc. Computer Science, University of Toronto
+
 You can connect on Twitter and a few infosec hubs on Discord and Slack under the handle `@glitchnsec`.
