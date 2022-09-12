@@ -1,6 +1,6 @@
 ---
 layout: course
-code: CSCD27-F2022
+code: CSCD27-2022F
 title: Computer and Network Security
 institute:
     - name: University of Toronto Scarborough
