@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="services">
+
+
+  {{ content }}
+
+  {%- if site.services.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {%- for service in site.services -%}
+      <li>
+        <h3>
+          <a class="post-link" href="{{ service.url | relative_url }}">
+            {{ service.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ service.excerpt }}
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+  
+  
+</div>
