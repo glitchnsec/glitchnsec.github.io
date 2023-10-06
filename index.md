@@ -8,7 +8,7 @@ title: Home
 
 # About
 
-Hello netizen! I am Kc Udonsi (legal name: Kelechukwu Udonsi). Welcome to my little corner of the internet.
+Hello netizen! I am Kc Udonsi. Welcome to my little corner of the internet.
 
 Areas of technical expertise and interest include: 
 
