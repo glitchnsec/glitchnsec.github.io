@@ -3,10 +3,28 @@ layout: default
 ---
 
 <div class="services">
-
+  <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
 
   {{ content }}
 
+  <ul class="">
+  {%- for service in page.services -%}
+      
+    {%- for data in service -%}
+      <li>
+        <b>{{ data[1].name | escape }}</b>
+        <p style="margin-bottom:0;">{{ data[1].description | escape }}
+          <br/>
+        <p style="color:#828282;font-size:14px"><b>Domains: </b>{{ data[1].domains | join: ", " }}</p>
+      </li>
+      
+    
+    {%- endfor -%}
+ 
+  {%- endfor -%}
+</ul>
+
+  <!--
   {%- if site.services.size > 0 -%}
     <h2 class="post-list-heading">{{ page.title | default: "Posts" }}</h2>
     <ul class="post-list">
@@ -24,8 +42,10 @@ layout: default
       {%- endfor -%}
     </ul>
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
   {%- endif -%}
-  
+-->
+
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   
 </div>

@@ -39,6 +39,8 @@ collections:
     output: true
   courses:
     output: true
+  services:
+    output: true
 
 # Build settings
 # using regular theme
